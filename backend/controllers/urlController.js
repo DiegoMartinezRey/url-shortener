@@ -37,6 +37,21 @@ const urlController = {
       res.status(500).send("Unable to add Url");
     }
   },
+  getUrlById: async (req, res) => {
+    try {
+      const shortUrl = req.params.shortUrl;
+      const url = await Url.findOne({ shortUrl });
+
+      if (url) {
+        res.redirect(url.originalUrl);
+      } else {
+        res.json({ msg: "Url dont exist" });
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Unable to find Url");
+    }
+  },
 };
 
 const generateShortUrl = () => {

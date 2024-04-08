@@ -4,5 +4,6 @@ const router = express.Router();
 
 router.get("/all", urlController.getAllUrls);
 router.post("/", urlController.addUrl);
+router.get("/:shortUrl", urlController.getUrlById);
 
 module.exports = router;
