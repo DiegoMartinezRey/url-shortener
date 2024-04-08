@@ -21,9 +21,13 @@ const urlController = {
       const urlToAdd = req.body;
 
       let link = await Url.findOne(urlToAdd);
+      const shortUrl = generateShortUrl();
 
       if (!link) {
-        const url = await Url.create(urlToAdd);
+        const url = await Url.create({
+          originalUrl: urlToAdd.originalUrl,
+          shortUrl,
+        });
         res.json(url);
       } else {
         res.json({ msg: "Url exist" });
@@ -33,6 +37,19 @@ const urlController = {
       res.status(500).send("Unable to add Url");
     }
   },
+};
+
+const generateShortUrl = () => {
+  const characters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const length = 6;
+  let shortUrl = "";
+
+  for (let i = 0; i < length; i++) {
+    const random = Math.floor(Math.random() * characters.length);
+    shortUrl += characters[random];
+  }
+  return shortUrl;
 };
 
 module.exports = urlController;
