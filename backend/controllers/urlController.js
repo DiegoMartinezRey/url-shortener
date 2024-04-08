@@ -10,28 +10,24 @@ let listOfUrls = [
 const urlController = {
   getAllUrls: async (req, res) => {
     try {
-      res.json(listOfUrls);
+      const urls = await Url.find();
+      res.json(urls);
     } catch (error) {
       res.status(500).send("Unable to find Url");
     }
   },
   addUrl: async (req, res) => {
     try {
-      const urlToBeAdd = req.body;
+      const urlToAdd = req.body;
 
-      let link = await listOfUrls.find(
-        (item) => item.originalUrl === urlToBeAdd.originalUrl
-      );
-      console.log("Link: ", link);
-      if (link) {
-        console.log("Url exist");
-      }
+      let link = await Url.findOne(urlToAdd);
+
       if (!link) {
-        console.log("Url doesnt exist");
-        listOfUrls.push(urlToBeAdd);
+        const url = await Url.create(urlToAdd);
+        res.json(url);
+      } else {
+        res.json({ msg: "Url exist" });
       }
-
-      res.json(listOfUrls);
     } catch (error) {
       console.log(error);
       res.status(500).send("Unable to add Url");
