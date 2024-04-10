@@ -21,10 +21,12 @@ const urlController = {
           originalUrl: urlToAdd.originalUrl,
           shortUrl,
         });
-        res.json({ msg: `Short url: http://localhost:3001/${url.shortUrl}` });
+        res.json({
+          msg: `Short url: ${process.env.URL}:${process.env.PORT}/${url.shortUrl}`,
+        });
       } else {
         res.json({
-          msg: `Url exist, is: http://localhost:3001/${link.shortUrl}`,
+          msg: `Url exist, is: ${process.env.URL}:${process.env.PORT}/${link.shortUrl}`,
         });
       }
     } catch (error) {
