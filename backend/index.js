@@ -14,8 +14,8 @@ mongoose.connect(url);
 app.use(express.json());
 app.use(cors());
 
-app.use("/app", urlRouter);
+app.use("/", urlRouter);
 
 app.listen(process.env.PORT, () => {
-  console.log("Running server");
+  console.log("Running server on Port: ", process.env.PORT);
 });

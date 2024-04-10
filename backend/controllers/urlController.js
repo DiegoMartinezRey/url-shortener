@@ -1,12 +1,5 @@
 const Url = require("../models/Url");
 
-let listOfUrls = [
-  {
-    originalUrl: "google.com",
-    shortUrl: "short.com",
-  },
-];
-
 const urlController = {
   getAllUrls: async (req, res) => {
     try {
@@ -21,16 +14,18 @@ const urlController = {
       const urlToAdd = req.body;
 
       let link = await Url.findOne(urlToAdd);
-      const shortUrl = generateShortUrl();
+      const shortUrl = await uniqueShortUrl();
 
       if (!link) {
         const url = await Url.create({
           originalUrl: urlToAdd.originalUrl,
           shortUrl,
         });
-        res.json(url);
+        res.json({ msg: `Short url: http://localhost:3001/${url.shortUrl}` });
       } else {
-        res.json({ msg: "Url exist" });
+        res.json({
+          msg: `Url exist, is: http://localhost:3001/${link.shortUrl}`,
+        });
       }
     } catch (error) {
       console.log(error);
@@ -54,6 +49,23 @@ const urlController = {
   },
 };
 
+const uniqueShortUrl = async () => {
+  let shortUrl;
+  let isUnique = false;
+
+  while (!isUnique) {
+    shortUrl = generateShortUrl();
+    const urlsIsInDb = await Url.findOne({ shortUrl });
+    if (urlsIsInDb) {
+      isUnique = false;
+    } else {
+      isUnique = true;
+    }
+  }
+
+  return shortUrl;
+};
+
 const generateShortUrl = () => {
   const characters =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -64,6 +76,7 @@ const generateShortUrl = () => {
     const random = Math.floor(Math.random() * characters.length);
     shortUrl += characters[random];
   }
+
   return shortUrl;
 };
 
