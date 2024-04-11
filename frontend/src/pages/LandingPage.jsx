@@ -11,9 +11,7 @@ const LandingPage = () => {
         >
           URL
         </label>
-        <div className="w-6/12 mt-2 flex items-center justify-center gap-2">
-          <GenerateUrl />
-        </div>
+        <GenerateUrl />
       </div>
     </>
   );

@@ -6,13 +6,14 @@ import Button from "../components/Button";
 
 const GenerateUrl = () => {
   const [urlInfo, setUrlInfo] = useState({});
+  const [urlInput, setUrlInput] = useState("");
 
   const getUrlInfo = async () => {
     try {
       const url = await axios.post(`${import.meta.env.VITE_API_URL}`, {
-        originalUrl: "https://www.facebook.com",
+        originalUrl: `https://${urlInput}`,
       });
-      console.log("url: ", url);
+      setUrlInfo(url.data);
     } catch (error) {
       console.log(error);
     }
@@ -20,21 +21,25 @@ const GenerateUrl = () => {
 
   return (
     <>
-      <div className="w-full relative rounded-md shadow-sm">
-        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <span className="text-gray-500">https://</span>
+      <div className="w-6/12 mt-2 flex items-center justify-center gap-2">
+        <div className="w-full relative rounded-md shadow-sm">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+            <span className="text-gray-500">https://</span>
+          </div>
+          <input
+            type="text"
+            name="url"
+            id="url"
+            className="block w-full rounded-md border-0 py-1.5 pl-16 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            placeholder="www.google.com"
+            onChange={(e) => setUrlInput(e.target.value)}
+          />
         </div>
-        <input
-          type="text"
-          name="url"
-          id="url"
-          className="block w-full rounded-md border-0 py-1.5 pl-16 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          placeholder="www.google.com"
-        />
+        <Button type={"light"} clickFunction={getUrlInfo}>
+          Generate
+        </Button>
       </div>
-      <Button type={"light"} clickFunction={getUrlInfo}>
-        Generate
-      </Button>
+      <h3>{`${import.meta.env.VITE_API_URL}/${urlInfo.shortUrl}`}</h3>
     </>
   );
 };
