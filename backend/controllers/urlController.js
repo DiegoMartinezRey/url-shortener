@@ -21,13 +21,9 @@ const urlController = {
           originalUrl: urlToAdd.originalUrl,
           shortUrl,
         });
-        res.json({
-          msg: `Short url: ${process.env.URL}:${process.env.PORT}/${url.shortUrl}`,
-        });
+        res.json(url);
       } else {
-        res.json({
-          msg: `Url exist, is: ${process.env.URL}:${process.env.PORT}/${link.shortUrl}`,
-        });
+        res.json(link);
       }
     } catch (error) {
       console.log(error);
