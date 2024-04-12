@@ -1,22 +1,13 @@
-import axios from "axios";
 import React, { useState } from "react";
 import Button from "../components/Button";
 
 //import.meta.env.VITE_API_URL
 
-const GenerateUrl = () => {
-  const [urlInfo, setUrlInfo] = useState({});
+const GenerateUrl = ({ getUrlInfo }) => {
   const [urlInput, setUrlInput] = useState("");
 
-  const getUrlInfo = async () => {
-    try {
-      const url = await axios.post(`${import.meta.env.VITE_API_URL}`, {
-        originalUrl: `https://${urlInput}`,
-      });
-      setUrlInfo(url.data);
-    } catch (error) {
-      console.log(error);
-    }
+  const clickFunction = () => {
+    getUrlInfo(urlInput);
   };
 
   return (
@@ -35,11 +26,10 @@ const GenerateUrl = () => {
             onChange={(e) => setUrlInput(e.target.value)}
           />
         </div>
-        <Button type={"light"} clickFunction={getUrlInfo}>
+        <Button type={"light"} clickFunction={clickFunction}>
           Generate
         </Button>
       </div>
-      <h3>{`${import.meta.env.VITE_API_URL}/${urlInfo.shortUrl}`}</h3>
     </>
   );
 };
