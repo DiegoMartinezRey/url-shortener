@@ -12,7 +12,7 @@ const GenerateUrl = ({ getUrlInfo }) => {
 
   return (
     <>
-      <div className="w-6/12 mt-2 flex items-center justify-center gap-2">
+      <div className="w-6/12 min-w-80 mt-2 flex items-center justify-center gap-2">
         <div className="w-full relative rounded-md shadow-sm">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <span className="text-gray-500">https://</span>

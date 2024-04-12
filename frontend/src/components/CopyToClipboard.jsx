@@ -22,7 +22,7 @@ const CopyToClipboard = ({ urlInfo }) => {
 
   return (
     <>
-      <div className="w-96 bg-gray-700 rounded-md py-2 px-4 flex justify-between">
+      <div className="w-80 bg-gray-700 rounded-md py-2 px-4 flex justify-between">
         <p className="text-white">{urlGetInfo.shortUrl && completeShortUrl}</p>
         <button
           className="flex bg-white rounded-md cursor-pointer"
