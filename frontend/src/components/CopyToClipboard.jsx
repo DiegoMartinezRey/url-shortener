@@ -1,10 +1,13 @@
 import { faCheck, faClipboard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../contexts/ThemeProvider";
+import themeConfig from "../styles/themeStyle";
 
 const CopyToClipboard = ({ urlInfo }) => {
   const [isCopied, setIsCopied] = useState(false);
   const [urlGetInfo, setUrlGetInfo] = useState({});
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   let completeShortUrl = `${import.meta.env.VITE_API_URL}/${
     urlGetInfo.shortUrl
@@ -24,7 +27,11 @@ const CopyToClipboard = ({ urlInfo }) => {
 
   return (
     <>
-      <div className="w-80 bg-gray-700 rounded-md py-2 px-2 flex justify-between">
+      <div
+        className={`${
+          toggleTheme === "light" ? themeConfig.light.primary : "bg-gray-700"
+        } w-80  rounded-md py-2 px-2 flex justify-between`}
+      >
         <p className="text-white">{urlGetInfo.shortUrl && completeShortUrl}</p>
         <button
           className="flex rounded-md cursor-pointer hover:bg-gray-500"

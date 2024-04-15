@@ -26,7 +26,7 @@ const GenerateUrl = ({ getUrlInfo }) => {
             onChange={(e) => setUrlInput(e.target.value)}
           />
         </div>
-        <Button type={"light"} clickFunction={clickFunction}>
+        <Button type={"dark"} clickFunction={clickFunction}>
           Generate
         </Button>
       </div>
