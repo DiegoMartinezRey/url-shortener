@@ -9,7 +9,7 @@ const Button = ({ children, type, clickFunction }) => {
       <button
         // class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         className={`${
-          toggleTheme === "light"
+          theme === "light"
             ? `${themeConfig.light.primary} shadow-pink-500/20 hover:shadow-pink-500/40`
             : `${themeConfig.dark.primary}`
         } text-white rounded-lg py-1.5 px-6 shadow-md  hover:shadow-lg  active:opacity-[0.85]`}

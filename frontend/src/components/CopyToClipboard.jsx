@@ -29,7 +29,7 @@ const CopyToClipboard = ({ urlInfo }) => {
     <>
       <div
         className={`${
-          toggleTheme === "light" ? themeConfig.light.primary : "bg-gray-700"
+          theme === "light" ? themeConfig.light.primary : "bg-gray-700"
         } w-80  rounded-md py-2 px-2 flex justify-between`}
       >
         <p className="text-white">{urlGetInfo.shortUrl && completeShortUrl}</p>

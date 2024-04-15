@@ -19,7 +19,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-10">
+      <div className="flex flex-col items-center justify-center gap-10 my-10">
         <h1>URL SHORTENER</h1>
         <GenerateUrl getUrlInfo={getUrlInfo} />
         <CopyToClipboard urlInfo={urlInfo} />
