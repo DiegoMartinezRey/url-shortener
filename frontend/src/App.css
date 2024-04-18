@@ -1,2 +1,7 @@
-:root {
+.darkMode :root {
+  background-color: black;
+}
+
+.lightMode :root {
+  background-color: white;
 }
