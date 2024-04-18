@@ -16,7 +16,7 @@ const FooterApp = () => {
       >
         <h1
           className={`${
-            theme === "light" ? themeConfig.light.text : themeConfig.dark.text
+            theme === "light" ? themeConfig.light.text2 : themeConfig.dark.text
           }`}
         >
           footer

@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeProvider";
 import themeConfig from "../styles/themeStyle";
 
 const NavBar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const [inputTheme, setInputTheme] = useState(false);
+
   return (
     <>
       <div
@@ -14,7 +14,13 @@ const NavBar = () => {
             : themeConfig.dark.primary
         } flex items-center justify-around gap-2 h-12`}
       >
-        <div className={`text-white`}>UrlShortener</div>
+        <div
+          className={`${
+            theme === "light" ? themeConfig.light.text2 : themeConfig.dark.text
+          }`}
+        >
+          UrlShortener
+        </div>
         <label className="inline-flex items-center cursor-pointer">
           <input
             type="checkbox"
