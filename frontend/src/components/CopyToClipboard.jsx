@@ -29,8 +29,10 @@ const CopyToClipboard = ({ urlInfo }) => {
     <>
       <div
         className={`${
-          theme === "light" ? themeConfig.light.primary : "bg-gray-700"
-        } w-80  rounded-md py-2 px-2 flex justify-between`}
+          theme === "light"
+            ? themeConfig.light.secondary
+            : themeConfig.dark.secondary
+        } w-80 rounded-md py-2 px-2 flex justify-between`}
       >
         <p className="text-white">{urlGetInfo.shortUrl && completeShortUrl}</p>
         <button

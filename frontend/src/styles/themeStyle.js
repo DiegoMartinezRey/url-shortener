@@ -1,14 +1,16 @@
 // themeConfig.js
 const themeConfig = {
   light: {
-    primary: "bg-pink-500",
-    secondary: "#FF5733",
-    text: "#4A90E2",
+    background: "bg-pink-50",
+    primary: "bg-pink-600",
+    secondary: "bg-pink-700",
+    text: "text-black",
   },
   dark: {
+    background: "bg-gray-900",
     primary: "bg-black",
-    secondary: "#FF5733",
-    text: "#4A90E2",
+    secondary: "bg-gray-700",
+    text: "text-white",
   },
 };
 

@@ -1,10 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CopyToClipboard from "../components/CopyToClipboard";
 import GenerateUrl from "../containers/GenerateUrl";
+import { ThemeContext } from "../contexts/ThemeProvider";
+import themeConfig from "../styles/themeStyle";
 
 const LandingPage = () => {
   const [urlInfo, setUrlInfo] = useState({});
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const getUrlInfo = async (urlInput) => {
     try {
@@ -19,8 +22,20 @@ const LandingPage = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-10 my-10">
-        <h1>URL SHORTENER</h1>
+      <div
+        className={`${
+          theme === "light"
+            ? themeConfig.light.background
+            : themeConfig.dark.background
+        } h-screen flex flex-col items-center  gap-10 py-10`}
+      >
+        <h1
+          className={`${
+            theme === "light" ? themeConfig.light.text : themeConfig.dark.text
+          }`}
+        >
+          URL SHORTENER
+        </h1>
         <GenerateUrl getUrlInfo={getUrlInfo} />
         <CopyToClipboard urlInfo={urlInfo} />
       </div>
