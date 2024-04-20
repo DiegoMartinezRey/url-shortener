@@ -32,10 +32,17 @@ const LandingPage = () => {
         <h1
           className={`${
             theme === "light" ? themeConfig.light.text : themeConfig.dark.text
-          }`}
+          } h1-default`}
         >
           URL SHORTENER
         </h1>
+        <h2
+          className={`${
+            theme === "light" ? themeConfig.light.text : themeConfig.dark.text
+          } h2-default`}
+        >
+          Info app description
+        </h2>
         <GenerateUrl getUrlInfo={getUrlInfo} />
         <CopyToClipboard urlInfo={urlInfo} />
       </div>

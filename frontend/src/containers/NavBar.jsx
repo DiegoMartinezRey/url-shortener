@@ -14,7 +14,7 @@ const NavBar = () => {
           theme === "light"
             ? themeConfig.light.primary
             : themeConfig.dark.primary
-        } flex items-center justify-around gap-2 h-12`}
+        } flex items-center justify-around gap-2 h-16`}
       >
         <div
           className={`${

@@ -12,7 +12,7 @@ const Button = ({ children, type, clickFunction }) => {
           theme === "light"
             ? `${themeConfig.light.primary} shadow-pink-500/20 hover:shadow-pink-500/40`
             : `${themeConfig.dark.primary}`
-        } text-white rounded-lg py-1.5 px-6 shadow-md  hover:shadow-lg  active:opacity-[0.85]`}
+        } text-white rounded-lg py-3 px-6 shadow-md  hover:shadow-lg  active:opacity-[0.85]`}
         onClick={() => clickFunction()}
       >
         {children}
