@@ -12,9 +12,9 @@ const NavBar = () => {
       <div
         className={`${
           theme === "light"
-            ? themeConfig.light.primary
-            : themeConfig.dark.primary
-        } flex items-center justify-around gap-2 h-16`}
+            ? `${themeConfig.light.primary} ${themeConfig.light.shadow}`
+            : `${themeConfig.dark.primary} ${themeConfig.dark.shadow}`
+        } absolute shadow-custom flex items-center justify-around gap-2 py-5 w-full`}
       >
         <div
           className={`${

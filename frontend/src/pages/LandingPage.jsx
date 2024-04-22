@@ -25,9 +25,9 @@ const LandingPage = () => {
       <div
         className={`${
           theme === "light"
-            ? themeConfig.light.background
-            : themeConfig.dark.background
-        } h-screen flex flex-col items-center  gap-10 py-10`}
+            ? `${themeConfig.light.background} ${themeConfig.light.shadow}`
+            : `${themeConfig.dark.background} ${themeConfig.dark.shadow}`
+        } h-screen flex flex-col items-center gap-10 py-28`}
       >
         <h1
           className={`${
