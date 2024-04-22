@@ -1,8 +1,8 @@
 const themeConfig = {
   light: {
-    background: "bg-pink-50",
-    primary: "bg-pink-600",
-    secondary: "bg-pink-700",
+    background: "bg-blue-50",
+    primary: "bg-gray-900",
+    secondary: "bg-gray-700",
     text: "text-black",
     text2: "text-white",
   },

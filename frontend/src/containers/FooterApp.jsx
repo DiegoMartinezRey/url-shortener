@@ -12,14 +12,14 @@ const FooterApp = () => {
           theme === "light"
             ? themeConfig.light.primary
             : themeConfig.dark.primary
-        } h-32 flex flex-col items-center  gap-10 py-1`}
+        } h-auto flex flex-col items-center  gap-10 py-4`}
       >
         <h1
           className={`${
             theme === "light" ? themeConfig.light.text2 : themeConfig.dark.text
           }`}
         >
-          footer
+          The code is available on GitHub
         </h1>
       </div>
     </>

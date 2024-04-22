@@ -40,7 +40,7 @@ const CopyToClipboard = ({ urlInfo }) => {
           onClick={() => copyToClipboard()}
           disabled={isCopied}
         >
-          <p className="text-black px-1 text-white">
+          <p className="px-1 text-white">
             <FontAwesomeIcon icon={!isCopied ? faClipboard : faCheck} />
           </p>
         </button>
