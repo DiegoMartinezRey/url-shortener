@@ -11,6 +11,8 @@ const nameCollection = process.env.MONGODB_NAMECOLLECTION;
 const url = `mongodb+srv://${user}:${password}@diego.wmp7dvz.mongodb.net/${nameCollection}?retryWrites=true&w=majority`;
 mongoose.connect(url);
 
+const port = process.env.PORT;
+
 app.use(express.json());
 app.use(cors());
 app.use(function (req, res, next) {
@@ -27,6 +29,6 @@ app.use(function (req, res, next) {
 
 app.use("/", urlRouter);
 
-app.listen(process.env.PORT || `0.0.0.0:$PORT`, () => {
-  console.log("Running server on Port: ", process.env.PORT);
+app.listen(port, () => {
+  console.log("Running server on Port: ", port);
 });
