@@ -26,7 +26,9 @@ const NavBar = () => {
         <div
           className={`${
             theme === "light" ? themeConfig.light.text2 : themeConfig.dark.text
-          } cursor-pointer`}
+          } cursor-pointer
+          transition-all duration-300 ease-in-out
+          transform hover:scale-130`}
           onClick={toggleTheme}
         >
           <FontAwesomeIcon icon={theme === "light" ? faSun : faMoon} />

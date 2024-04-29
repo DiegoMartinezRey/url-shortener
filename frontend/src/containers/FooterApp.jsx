@@ -19,7 +19,8 @@ const FooterApp = () => {
             theme === "light" ? themeConfig.light.text2 : themeConfig.dark.text
           }`}
         >
-          The code is available on GitHub
+          The code is available on{" "}
+          <span className="hover:underline cursor-pointer">GitHub</span>
         </h1>
       </div>
     </>
