@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import LogoD from "../components/LogoD";
 import { ThemeContext } from "../contexts/ThemeProvider";
 import themeConfig from "../styles/themeStyle";
 
@@ -22,6 +23,7 @@ const FooterApp = () => {
           The code is available on{" "}
           <span className="hover:underline cursor-pointer">GitHub</span>
         </h1>
+        <LogoD />
       </div>
     </>
   );
