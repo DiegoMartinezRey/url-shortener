@@ -16,6 +16,6 @@ app.use(cors());
 
 app.use("/", urlRouter);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || `0.0.0.0:$PORT`, () => {
   console.log("Running server on Port: ", process.env.PORT);
 });
