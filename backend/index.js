@@ -16,7 +16,7 @@ app.use(cors());
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://url-shortener-sandy-eight.vercel.app/"
+    "https://url-shortener-7gof.vercel.app/"
   ); // Reemplaza con tu dominio de Vercel
   res.header(
     "Access-Control-Allow-Headers",
