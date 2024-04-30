@@ -27,6 +27,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get("/test", (req, res) => {
+  console.log("pasa por aca");
+  res.json({ msg: "Test" });
+});
 app.use("/", urlRouter);
 
 app.listen(port, () => {
