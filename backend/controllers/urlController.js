@@ -3,6 +3,7 @@ const Url = require("../models/Url");
 const urlController = {
   getAllUrls: async (req, res) => {
     try {
+      console.log("Alguien quiere saber");
       const urls = await Url.find();
       res.json(urls);
     } catch (error) {

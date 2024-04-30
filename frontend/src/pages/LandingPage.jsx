@@ -11,9 +11,11 @@ const LandingPage = () => {
 
   const getUrlInfo = async (urlInput) => {
     try {
+      console.log("first", `${import.meta.env.VITE_API_URL}`);
       const url = await axios.post(`${import.meta.env.VITE_API_URL}`, {
         originalUrl: `https://${urlInput}`,
       });
+      console.log("url", url);
       setUrlInfo(url.data);
     } catch (error) {
       console.log(error);
