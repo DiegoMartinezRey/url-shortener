@@ -15,11 +15,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-const corsOptions = {
-  origin: "https://url-shortener-puce-mu.vercel.app",
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use("/", urlRouter);
 

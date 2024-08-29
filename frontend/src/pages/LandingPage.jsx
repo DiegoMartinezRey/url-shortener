@@ -8,9 +8,12 @@ import themeConfig from "../styles/themeStyle";
 const LandingPage = () => {
   const [urlInfo, setUrlInfo] = useState({});
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getUrlInfo = async (urlInput) => {
+    setIsLoading(false);
     try {
+      setIsLoading(true);
       console.log("first", `${import.meta.env.VITE_API_URL}`);
       const url = await axios.post(`${import.meta.env.VITE_API_URL}`, {
         originalUrl: `https://${urlInput}`,
@@ -19,6 +22,8 @@ const LandingPage = () => {
       setUrlInfo(url.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -45,8 +50,11 @@ const LandingPage = () => {
         >
           Info app description
         </h2>
-        <GenerateUrl getUrlInfo={getUrlInfo} />
-        <CopyToClipboard urlInfo={urlInfo} />
+        <GenerateUrl getUrlInfo={getUrlInfo} loading={isLoading} />
+        <div className="flex flex-col gap-2 items-center">
+          <CopyToClipboard urlInfo={urlInfo} />
+          {isLoading ? <p className="text-white">Loading ...</p> : <></>}
+        </div>
       </div>
     </>
   );

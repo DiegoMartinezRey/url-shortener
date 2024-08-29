@@ -3,11 +3,12 @@ import Button from "../components/Button";
 
 //import.meta.env.VITE_API_URL
 
-const GenerateUrl = ({ getUrlInfo }) => {
+const GenerateUrl = ({ getUrlInfo, loading }) => {
   const [urlInput, setUrlInput] = useState("");
 
   const clickFunction = () => {
     getUrlInfo(urlInput);
+    console.log(loading);
   };
 
   return (
@@ -26,7 +27,10 @@ const GenerateUrl = ({ getUrlInfo }) => {
             onChange={(e) => setUrlInput(e.target.value)}
           />
         </div>
-        <Button type={"dark"} clickFunction={clickFunction}>
+        <Button
+          type={`${loading ? "isLoading" : "Dark"}`}
+          clickFunction={clickFunction}
+        >
           Generate
         </Button>
       </div>
