@@ -11,9 +11,8 @@ const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const getUrlInfo = async (urlInput) => {
-    setIsLoading(false);
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       console.log("first", `${import.meta.env.VITE_API_URL}`);
       const url = await axios.post(`${import.meta.env.VITE_API_URL}`, {
         originalUrl: `https://${urlInput}`,
